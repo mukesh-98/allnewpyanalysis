@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>3D graph</title>
+    <link href="https://fonts.googleapis.com/css?family=Abel&display=swap" rel="stylesheet">
+    <style media="screen">
+      body{
+        margin:0px;
+        padding:0px;
+      }
+
+      .head{
+        background: #EBF9FF;
+        padding-bottom:4%;
+        position:absolute;
+        width:98.7vw;
+      }
+
+
+    .graph{
+      position: absolute;
+      top:250px;
+      left:120px;
+      right:10px;
+
+    }
+
+    .button{
+      display: flex;
+      flex-direction:row;
+      margin-top: 30px;
+
+    }
+
+    .button>.buttons{
+      display:flex;
+
+
+    }
+    .button>.buttons>h4>a{
+      text-decoration:none;
+      background-color:white;
+      border-radius:22px;
+      width:7%;
+      height:40px;
+      margin-top:10px;
+      margin-bottom: 80px;
+      margin-left:70px;
+      padding:10px 10px;
+      font-family: Segoe UI;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 15px;
+      line-height: 7px;
+      /* identical to box height */
+      color: #172B4D;
+      opacity: 0.8;
+        border: 1px solid #D4D4D4;
+
+    }
+
+    .button>.buttons>h4>a:hover{
+      cursor:pointer;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      border: 1px solid #D4D4D4;
+
+
+    }
+
+            .container{
+
+              margin-top:10px;
+              margin-left:120px;
+              margin-right: 155px;
+            }
+            .container .file{
+              color: #3F3D56;
+              padding:1%;
+              background:white;
+              box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+              border: 2px solid #2595FF;
+              box-sizing: border-box;
+              border-radius: 12px;
+              color:white;
+
+            }
+
+            .container .file input{
+              border-radius:4px;
+              margin-left: 12px;
+            }
+            .container .file>.cfile{
+              padding: 11px 50px;
+              border-radius:4px;
+              background-color: #11CDEF;
+              margin-left: 13px;
+            }
+
+            .container .file>.cfile:hover{
+              cursor:pointer;
+              box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+              text-shadow: 0 0 4px #0097FF, 0 0 1px #0097FF;
+            }
+
+            .container .file>.cfile [type=file]{
+              cursor: inherit;
+           display: block;
+           font-size: 9px;
+           filter: alpha(opacity=0);
+           padding:10px 0px;
+           background-color: blue;
+           margin:-40px 2px;
+           opacity:0%;
+           position: absolute;
+           font-family: Abel;
+           text-align: right;
+
+            }
+
+            .container .file .csubmit{
+              background-color: #11CDEF;
+              border:none;
+              padding: 11px 50px;
+              margin-left: 20px;
+              font-size: 14px;
+              color:white;
+            }
+            .container .file .csubmit:focus{
+              color:black;
+              background: white;
+            }
+            .container .file .csubmit:hover{
+              cursor:pointer;
+              box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+              text-shadow: 0 0 3px #0097FF, 0 0 1px #0097FF;
+            }
+
+    </style>
+  </head>
+  <body>
+    <div class="head">
+      {% load static %}
+
+
+
+      <div class="button">
+        <div class="buttons">
+          <h4>
+            <a href="{% url 'analysis' %}">Go For  Prediction</a>
+          </h4>
+        </div>
+      </div>
+
+      <div class="container">
+        <form class="file" action="{% url 'analysis'%}" method="post"  enctype="multipart/form-data">
+          {% csrf_token %}
+            <label class="cfile" for="file_2">One App Data
+              <input  required accept=".csv" type="file" name="file_2">
+            </label>
+            <label class="cfile" for="file_3">Score Data
+              <input  required accept=".csv" type="file" name="file_3">
+            </label>
+            <input class="csubmit" type="submit" name="file_submit" value="Submit">
+        </form>
+      </div>
+
+    <div class="graph">
+    
+
+      </div>
+    </div>
+  </body>
+</html>

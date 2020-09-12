@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Analysis</title>
+    <link href="https://fonts.googleapis.com/css?family=Abel&display=swap" rel="stylesheet">
+    <style media="screen">
+        body{
+          margin:0px;
+          padding:0px;
+        }
+
+        .head{
+          background: #EBF9FF;
+          padding-bottom:2%;
+          padding-top:1%;
+          position:relative;
+          width:98.7vw;
+        }
+
+         .head .pad{
+          display:flex;
+          background-color:white;
+          box-shadow: 0px 3px 6px rgba(23, 23, 23, 0.176);
+          border-radius:22px;
+          width:20%;
+          height:40px;
+          margin-top:30px;
+          margin-left:70px;
+          padding:0px 20px;
+        }
+        .head .pad1{
+
+         background-color:white;
+         box-shadow: 0px 3px 6px rgba(23, 23, 23, 0.176);
+         border-radius:22px;
+         width:20%;
+         height:40px;
+         margin-top:25px;
+         margin-left:100px;
+         padding:0px  20px;
+         display:flex;
+         flex-direction:column;
+        }
+
+        .head .pad1 h5{
+          width:190%;
+          margin-left: -20px;
+          margin-top: 1px;
+          margin-bottom: 40px;
+          padding:12px 20px;
+          color: #172B4D;
+          background-color:white;
+          box-shadow: 0px 3px 6px rgba(23, 23, 23, 0.176);
+          border-radius:22px;
+          border: 0.5px solid white;
+          font-family: Segoe UI;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 16px;
+          line-height: 17px;
+        }
+
+
+          .head .pad h4{
+          margin-top:5px;
+          margin-left:20px;
+          font-family: Segoe UI;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 20px;
+          line-height: 27px;
+          /* identical to box height */
+          color: #172B4D;
+          opacity: 0.8;
+
+        }
+
+        .head .user{
+          display:flex;
+          margin-top:35px;
+        }
+
+        .head .user img{
+          margin-top:5px;
+          margin-left:80px;
+        }
+
+        .head .user h4{
+        margin:13px 10px;
+        font-family: Abel;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 25px;
+        line-height: 38px;
+
+        color: #4E6BA0;
+        }
+
+        .head .cards{
+          display:flex;
+          flex-direction:row;
+
+
+
+        }
+
+        .head .cards>div{
+         margin-left: 70px;
+         margin-right: 4px;
+         background-color: white;
+         padding:30px 20px;
+         box-shadow: 0px 3px 6px rgba(44, 40, 40, 0.11);
+         background: #FFFFFF;
+         border: 2px solid #2595FF;
+         box-sizing: border-box;
+         border-radius: 12px;
+        }
+        .head .cards>div>.data{
+        display: flex;
+        padding-left: 30px;
+        }
+        .head .cards>div>.data>.value{
+        margin-top: 10px;
+        margin-left: -30px;
+        }
+        .head .cards>div>.data>.pic{
+
+        margin:-18px 0px -18px 40px;
+        padding-left: 60px;
+
+        }
+
+        .graph{
+
+        margin-top:40px;
+        margin-left:120px;
+        margin-right: 10px;
+
+        }
+
+        .button{
+        display: flex;
+        flex-direction:row;
+
+        }
+
+        .button>.buttons{
+        display:flex;
+
+
+        }
+        .button>.buttons>h4>a{
+        text-decoration:none;
+        background-color:white;
+        border-radius:22px;
+        width:7%;
+        height:40px;
+        margin-top:10px;
+        margin-bottom: 80px;
+        margin-left:70px;
+        padding:10px 10px;
+        font-family: Segoe UI;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 15px;
+        line-height: 7px;
+        /* identical to box height */
+        color: #172B4D;
+        opacity: 0.8;
+          border: 1px solid #D4D4D4;
+
+        }
+
+        .button>.buttons>h4>a:hover{
+        cursor:pointer;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border: 1px solid #D4D4D4;
+
+
+        }
+
+         .goback{
+          flex:-1;
+          margin-top:25px;
+          margin-left:83%;
+        }
+
+         .goback form button{
+          font-family: Abel;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 30px;
+          line-height: 38px;
+          background-color: #FFFFFF;
+          border-radius: 8px;
+          color: #3F77AA;
+          border: 2px solid blue;
+          text-decoration:none;
+          cursor: pointer;
+        }
+        .graph #error{
+          height:900px;
+          width:500px;
+          margin-left: 25%;
+          margin-top: 100px;
+
+        }
+
+        .graph .error p{
+          text-align: center;
+          margin-top: 40px;
+          margin:13px 10px;
+          font-family: Abel;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 25px;
+          line-height: 38px;
+
+          color: #4E6BA0;
+        }
+
+</style>
+</head>
+  <body>
+<div class="head">
+  {% load static %}
+  <div class="goback">
+        <form  action="{% url 'logout' %}" method="post">
+          {% csrf_token %}
+            <button type="submit" name="button">Logout</button>
+        </form>
+      </div>
+    <div class="pad">
+      <img src="{% static 'assets/search.svg' %}" alt="My image">
+      <h4>Marks Prediction</h4>
+    </div>
+
+    <div class="pad1">
+      <h5>Your Predicted Marks is: <strong> {{y}}</strong></h5>
+    </div>
+    <div class="pad">
+      <img src="{% static 'assets/search.svg' %}" alt="My image">
+      <h4>Clustering</h4>
+    </div>
+</div>
+
+<div class="graph">
+  {% if y != "You Selected Wrong File" %}
+    <iframe id="igraph" scrolling="no"
+      style="border: 2px solid #2595FF;
+        border: 2px solid #2595FF;
+        box-sizing: border-box;
+        margin-top:10px;
+        border-radius: 12px;"
+        seamless="seamless" src="{% static 'graph/Clicks Clustering.html' %}" height="400" width="90%"></iframe>
+
+    <iframe id="igraph" scrolling="no"
+        style="border: 2px solid #2595FF;
+          border: 2px solid #2595FF;
+          box-sizing: border-box;
+          margin-top:10px;
+          border-radius: 12px;"
+          seamless="seamless" src="{% static 'graph/Time Clustering.html' %}" height="400" width="90%"></iframe>
+  {% else %}
+    <div class="error" id="error">
+        <p>There is nothing to show for selected data &nbsp;&nbsp;&nbsp;&nbsp; <strong>Please go back by using back arrow of browser</strong></p>
+    </div>
+  {% endif %}
+
+</div>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.6.8/lottie.min.js" integrity="sha256-HlqBFI4b3mzFNE97JQcgI/uhJvHBI5czBqfVtEeA1Hg=" crossorigin="anonymous"></script>
+<script type="text/javascript">
+var animation = bodymovin.loadAnimation({
+  container: document.getElementById('error'), // Required
+  path: '{% static "data.json" %}', // Required
+  renderer: 'svg/canvas/html', // Required
+  loop: true, // Optional
+  autoplay: true, // Optional
+
+  })
+</script>
+</body>
+</html>

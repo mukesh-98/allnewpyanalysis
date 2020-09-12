@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Details</title>
+  </head>
+  <body>
+    <!DOCTYPE html>
+    <html lang="en" dir="ltr">
+      <head>
+        <meta charset="utf-8">
+        <title>Selector</title>
+      </head>
+      <link href="https://fonts.googleapis.com/css?family=Abel&display=swap" rel="stylesheet">
+      <style media="screen">
+        html,body{
+          margin:0px;
+          padding:0px;
+          font-family: Abel;
+          background: linear-gradient(215.69deg, #E4F6FF -35.04%, #FFFFFF 129.65%);
+        }
+
+        .container .details{
+          color: #3F3D56;
+          padding:2%;
+          margin:4% 10%;
+          background:white;
+          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+          border: 1px solid #2595FF;
+          box-sizing: border-box;
+          border-radius: 12px;
+
+          font-family: Abel;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 25px;
+          line-height: 38px;
+
+          color: #130E3E;
+
+          text-shadow: 0 0 1px #0097FF, 0 0 1px #0097FF;
+        }
+
+        .container .details .fname{
+          display:flex;
+
+        }
+        .container .details .fname .filename{
+          margin-left:20px;
+        }
+
+        .container .details .dfdetails{
+          display:flex;
+        }
+        .container .details .dfdetails .fdetails{
+          margin-left:34px;
+        }
+
+
+        .container .file{
+          color: #3F3D56;
+          padding:1%;
+          margin:2% 10%;
+          background:white;
+          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+          border: 1px solid #2595FF;
+          box-sizing: border-box;
+          border-radius: 12px;
+          color: #130E3E;
+          text-shadow: 0 0 1px #0097FF, 0 0 1px #0097FF;
+          display:flex;
+          flex-direction:column;
+        }
+
+        .container .file .drop select,label{
+          border-radius:4px;
+          margin-left: 10px;
+          width:40%;
+          margin-top:9px;
+          padding:3px;
+
+        }
+          .container .file .drop select{
+        border:1px solid #2595FF;
+      }
+        .container .file .select_data input{
+          margin:8px;
+          border:1px solid #2595FF;
+          border-radius:12px;
+          padding:3px 10px;
+
+        }
+          .container .file .select_data [type='submit']{
+            background-color: #11CDEF;
+            border:none;
+            padding: 11px 50px;
+            margin-left: 20px;
+            font-size: 14px;
+            color:white;
+
+          }
+
+          .container .file .select_data [type='submit']:focus{
+            color:black;
+            background: white;
+          }
+          .container .file .select_data [type='submit']:hover{
+            cursor:pointer;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            text-shadow: 0 0 3px #0097FF, 0 0 1px #0097FF;
+          }
+
+          .container .goback{
+           flex:-1;
+           margin-top:65px;
+           margin-left:83%;
+         }
+
+          .container .goback form button{
+           font-family: Abel;
+           font-style: normal;
+           font-weight: normal;
+           font-size: 30px;
+           line-height: 38px;
+           background-color: #FFFFFF;
+           border-radius: 8px;
+           color: #3F77AA;
+           border: 2px solid blue;
+           text-decoration:none;
+           cursor: pointer;
+         }
+      </style>
+
+      <body>
+        <div class="container">
+          <div class="goback">
+                <form  action="{% url 'logout' %}" method="post">
+                  {% csrf_token %}
+                    <button type="submit" name="button">Logout</button>
+                </form>
+              </div>
+          <div class="details">
+            <div class="fname">
+              <div class="head_f">
+                File Name&nbsp;:
+              </div>
+              <div class="filename">
+                {{file}}
+              </div>
+            </div>
+
+
+            <div class="dfdetails">
+              <div class="head">
+                  Columns&nbsp;:
+              </div>
+              <div class="fdetails">
+                {% for i in data.columns %}
+                  &nbsp;&nbsp;{{i}}&nbsp;&nbsp;
+                {% endfor %}
+              </div>
+            </div>
+        </div>
+        {%  if file == "Invalid File" %}
+            <div class="file">
+              <h3>Please select valid file &nbsp;&nbsp;<a href="{% url 'selector'%}">Go Back </a>&nbsp;&nbsp; to select file</h3>
+            </div>
+        {% else %}
+          <form class="file" action="{% url 'dashboard'%}" method="post">
+            {% csrf_token%}
+            <div class="drop">
+              <label for="appname">Choose&nbsp;App&nbsp;:</label>
+              <select class="appname" name="app">
+                <option value="AllApp">AllApp</option>
+                {% for i in app %}
+                  <option value="{{i}}">{{i}}</option>
+                {% endfor %}
+              </select>
+              <label for="username">Choose&nbsp;User&nbsp;:</label>
+              <select class="username" name="user">
+                <option value="AllUser">AllUser</option>
+                {% for i in user %}
+                  <option value="{{i}}">{{i}}</option>
+                {% endfor %}
+              </select>
+            </div>
+              <div class="select_data">
+
+                <label for="starttime">Start&nbsp;time&nbsp;:</label>
+                <input type="date" name="startdate">
+
+                <label for="endtime">End&nbsp;time&nbsp;:</label>
+                <input type="date" name="enddate">
+
+                <input type="submit" name="submit" value="Submit">
+              </div>
+          </form>
+          {% endif %}
+        </div>
+      </body>
+    </html>
+
+  </body>
+</html>

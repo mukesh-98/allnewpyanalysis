@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Dashboard</title>
+    <link href="https://fonts.googleapis.com/css?family=Abel&display=swap" rel="stylesheet">
+    <style media="screen">
+      body{
+        margin:0px;
+        padding:0px;
+      }
+
+      .head{
+        background: #EBF9FF;
+        padding-bottom:4%;
+        position:absolute;
+        width:98.7vw;
+      }
+
+       .head .pad{
+        display:flex;
+        background-color:white;
+        box-shadow: 0px 3px 6px rgba(23, 23, 23, 0.176);
+        border-radius:22px;
+        width:30%;
+        height:40px;
+        margin-top:40px;
+        margin-left:70px;
+        padding:0px 20px;
+      }
+
+      .head .pad h4{
+        margin-top:5px;
+        margin-left:20px;
+        font-family: Segoe UI;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 20px;
+        line-height: 27px;
+        /* identical to box height */
+        color: #172B4D;
+        opacity: 0.8;
+
+      }
+
+      .head .user{
+        display:flex;
+      }
+
+      .head .user img{
+        margin-top:5px;
+        margin-left:80px;
+      }
+
+      .head .user h4{
+      margin:13px 10px;
+      font-family: Abel;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 25px;
+      line-height: 38px;
+
+      color: #4E6BA0;
+      }
+
+      .head .cards{
+        display:flex;
+        flex-direction:row;
+        margin-left: 120px;
+        margin-top: 20px;
+
+
+     }
+
+     .head .cards>div{
+       margin-left: 70px;
+       margin-right: 4px;
+       background-color: white;
+       padding:30px 40px;
+       box-shadow: 0px 3px 6px rgba(44, 40, 40, 0.11);
+       background: #FFFFFF;
+       border: 2px solid #2595FF;
+       box-sizing: border-box;
+       border-radius: 12px;
+     }
+    .head .cards>div>.data{
+      display: flex;
+      padding-left: 30px;
+    }
+    .head .cards>div>.data>.value{
+      margin-top: 10px;
+      margin-left: -30px;
+    }
+    .head .cards>div>.data>.pic{
+
+      margin:-18px 0px -18px 40px;
+      padding-left: 60px;
+
+    }
+
+    .graph{
+      position: absolute;
+      top:550px;
+      left:120px;
+      right:10px;
+
+    }
+
+    .container{
+      margin-top:20px;
+      margin-bottom:40px;
+      margin-left:5px;
+      margin-right: 65px;
+    }
+    .container .file{
+      color: #3F3D56;
+      padding:1%;
+      margin:2% 10%;
+      background:white;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      border: 1px solid #2595FF;
+      box-sizing: border-box;
+      border-radius: 12px;
+      color:white;
+
+    }
+
+    .container .file .input{
+      padding: 10px 4px;
+      margin-left: 20px;
+      border: 1px solid #2595FF;
+        border-radius:4px;
+    }
+    .container .file>.cfile{
+      padding: 11px 50px;
+      border-radius:4px;
+      background-color: #11CDEF;
+      margin-left: 13px;
+    }
+
+    .container .file>.cfile:hover{
+      cursor:pointer;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      text-shadow: 0 0 4px #0097FF, 0 0 1px #0097FF;
+    }
+
+    .container .file>.cfile [type=file]{
+      cursor: inherit;
+   display: block;
+   font-size: 9px;
+   filter: alpha(opacity=0);
+   padding:10px 10px;
+   background-color: blue;
+   margin:-40px 210px;
+   opacity:0%;
+   position: absolute;
+   font-family: Abel;
+   text-align: right;
+
+    }
+
+
+    .container .file>.sfile{
+      padding: 11px 50px;
+      border-radius:4px;
+      background-color: #11CDEF;
+      margin-left: 13px;
+    }
+
+    .container .file>.sfile:hover{
+      cursor:pointer;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      text-shadow: 0 0 4px #0097FF, 0 0 1px #0097FF;
+    }
+
+    .container .file>.sfile [type=file]{
+      cursor: inherit;
+    display: block;
+    font-size: 9px;
+    filter: alpha(opacity=0);
+    padding:10px 10px;
+    background-color: blue;
+    margin:-40px 416px;
+    opacity:0%;
+    position: absolute;
+    font-family: Abel;
+    text-align: right;
+
+    }
+
+    .container .file .csubmit{
+      background-color: #11CDEF;
+      border:none;
+
+      border-radius:4px;
+      padding: 12.5px 50px;
+      margin-left: 20px;
+      font-size: 14px;
+      color:white;
+    }
+    .container .file .csubmit:focus{
+      color:black;
+      background: white;
+    }
+    .container .file .csubmit:hover{
+      cursor:pointer;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      text-shadow: 0 0 3px #0097FF, 0 0 1px #0097FF;
+    }
+
+     .goback{
+      flex:-1;
+      margin-top:5px;
+      margin-left:83%;
+    }
+
+     .goback form button{
+      font-family: Abel;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 30px;
+      line-height: 38px;
+      background-color: #FFFFFF;
+      border-radius: 8px;
+      color: #3F77AA;
+      border: 2px solid blue;
+      text-decoration:none;
+      cursor: pointer;
+    }
+
+    .graph .error{
+      height:500px;
+    }
+
+    .graph .error p{
+      text-align: center;
+      margin-top: 40px;
+      margin:13px 10px;
+      font-family: Abel;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 25px;
+      line-height: 38px;
+
+      color: #4E6BA0;
+    }
+
+    </style>
+  </head>
+  <body>
+    <div class="head">
+      {% load static %}
+
+      <div class="pad">
+        <img src="{% static 'assets/search.svg' %}" alt="My image">
+        <h4>{{app}}</h4>
+      </div>
+      <div class="goback">
+            <form  action="{% url 'logout' %}" method="post">
+              {% csrf_token %}
+                <button type="submit" name="button">Logout</button>
+            </form>
+          </div>
+      <div class="user">
+        <img src="{% static 'assets/5-1.svg' %}" alt="My image">
+        <h4>User&nbsp;Name&nbsp;:&nbsp;{{name}}</h4>
+      </div>
+
+
+      <div class="container">
+        <form class="file" action="{% url 'analysis'%}" method="post"  enctype="multipart/form-data">
+          {% csrf_token %}
+            <input class="input" type="number" name="Time" placeholder="Enter time in sec.">
+            <label class="cfile" for="file_2">One App Data
+              <input  required accept=".csv" type="file" name="file_2" >
+            </label>
+            <label class="sfile" for="file_3"> Score Data
+              <input  required accept=".csv" type="file" name="file_3">
+            </label>
+
+            <input class="csubmit" type="submit" name="file_submit" value="Go For  Prediction">
+        </form>
+      </div>
+
+            <div class="cards">
+              <div class="card1">
+                <div class="heading">
+                  Total Model
+                </div>
+                <div class="data">
+                  <div class="value">
+                    {{model}}
+                  </div>
+                  <div class="pic">
+                    <img src="{% static 'assets/1.svg' %}" alt="My image">
+                  </div>
+                </div>
+              </div>
+              <div class="card2">
+                <div class="heading">
+                  Total Step
+                </div>
+                <div class="data">
+                  <div class="value">
+                    {{step}}
+                  </div>
+                  <div class="pic">
+                    <img src="{% static 'assets/3.svg' %}" alt="My image">
+                  </div>
+                </div>
+              </div>
+              <div class="card3">
+                <div class="heading">
+                  Average Inclination
+                </div>
+                <div class="data">
+                  <div class="value">
+                    {{avginc}}
+                  </div>
+                  <div class="pic">
+                    <img src="{% static 'assets/2.svg' %}" alt="My image">
+                  </div>
+                </div>
+              </div>
+              <div class="card4">
+                <div class="heading">
+                  Total User
+                </div>
+                <div class="data">
+                  <div class="value">
+                    {{counts}}
+                  </div>
+                  <div class="pic">
+                    <img src="{% static 'assets/4.svg' %}" alt="My image">
+                  </div>
+                </div>
+              </div>
+            </div>
+    </div>
+
+    <div class="graph">
+      {% if alluser == True and allapp == True %}
+        <iframe id="igraph" scrolling="no"
+          style="border: 2px solid #2595FF;
+            border: 2px solid #2595FF;
+            box-sizing: border-box;
+            margin-top:10px;
+            border-radius: 12px;"
+            seamless="seamless" src="{% static 'graph/Number of models accessed by each user.html' %}" height="400" width="90%"></iframe>
+
+        <iframe id="igraph" scrolling="no"
+          style="border: 2px solid #2595FF;
+            border: 2px solid #2595FF;
+            box-sizing: border-box;
+            margin-top:10px;
+            border-radius: 12px;"
+            seamless="seamless" src="{% static 'graph/user activity graph.html' %}" height="400" width="90%"></iframe>
+
+
+        <iframe id="igraph" scrolling="no"
+          style="border: 2px solid #2595FF;
+            border: 2px solid #2595FF;
+            box-sizing: border-box;
+            margin-top:10px;
+            border-radius: 12px;"
+            seamless="seamless" src="{% static 'graph/userlistvsapplist.html' %}" height="400" width="90%"></iframe>
+
+        <iframe id="igraph" scrolling="no"
+          style="border: 2px solid #2595FF;
+            border: 2px solid #2595FF;
+            box-sizing: border-box;
+            margin-top:10px;
+            border-radius: 12px;"
+            seamless="seamless" src="{% static 'graph/ Top 5 steps that are been clicked on very often.html' %}" height="400" width="90%"></iframe>
+
+        <iframe id="igraph" scrolling="no"
+          style="border: 2px solid #2595FF;
+            border: 2px solid #2595FF;
+            box-sizing: border-box;
+            margin-top:10px;
+            border-radius: 12px;"
+            seamless="seamless" src="{% static 'graph/Top 5 Models has been clicked .html' %}" height="400" width="90%"></iframe>
+
+        <iframe id="igraph" scrolling="no"
+          style="border: 2px solid #2595FF;
+            border: 2px solid #2595FF;
+            box-sizing: border-box;
+            margin-top:10px;
+            border-radius: 12px;"
+            seamless="seamless" src="{% static 'graph/Average inclination of all models.html' %}" height="400" width="90%"></iframe>
+
+
+        <iframe id="igraph" scrolling="no"
+          style="border: 2px solid #2595FF;
+            border: 2px solid #2595FF;
+            box-sizing: border-box;
+            margin-top:10px;
+            border-radius: 12px;"
+            seamless="seamless" src="{% static 'graph/Average-Mean inclination of all Steps.html' %}" height="400" width="90%"></iframe>
+
+        <iframe id="igraph" scrolling="no"
+          style="border: 2px solid #2595FF;
+            border: 2px solid #2595FF;
+            box-sizing: border-box;
+            margin-top:10px;
+            border-radius: 12px;"
+            seamless="seamless" src="{% static 'graph/Access each day.html' %}" height="400" width="90%"></iframe>
+
+        <iframe id="igraph" scrolling="no"
+          style="border: 2px solid #2595FF;
+            border: 2px solid #2595FF;
+            box-sizing: border-box;
+            margin-top:10px;
+            border-radius: 12px;"
+            seamless="seamless" src="{% static 'graph/User Inclination.html' %}" height="400" width="90%"></iframe>
+
+        <iframe id="igraph" scrolling="no"
+          style="border: 2px solid #2595FF;
+            border: 2px solid #2595FF;
+            box-sizing: border-box;
+            margin-top:10px;
+            border-radius: 12px;"
+            seamless="seamless" src="{% static 'graph/Number of month the user was online.html' %}" height="400" width="90%"></iframe>
+
+
+        <iframe id="igraph" scrolling="no"
+          style="border: 2px solid #2595FF;
+            border: 2px solid #2595FF;
+            box-sizing: border-box;
+            margin-top:10px;
+            border-radius: 12px;"
+            seamless="seamless" src="{% static 'graph/Number of Month the App was accessed.html' %}" height="400" width="90%"></iframe>
+
+        <iframe id="igraph" scrolling="no"
+            style="border: 2px solid #2595FF;
+            border: 2px solid #2595FF;
+            box-sizing: border-box;
+            margin-top:10px;
+            border-radius: 12px;"
+            seamless="seamless" src="{% static 'graph/User name Vs App name Vs TimeStamp.html' %}" height="400" width="90%"></iframe>
+
+        <iframe id="igraph" scrolling="no"
+            style="border: 2px solid #2595FF;
+            border: 2px solid #2595FF;
+            box-sizing: border-box;
+            margin-top:10px;
+            border-radius: 12px;"
+            seamless="seamless" src="{% static 'graph/User name Vs App name Vs Inclination.html' %}" height="400" width="90%"></iframe>
+
+        <iframe id="igraph" scrolling="no"
+            style="border: 2px solid #2595FF;
+            border: 2px solid #2595FF;
+            box-sizing: border-box;
+            margin-top:10px;
+            border-radius: 12px;"
+            seamless="seamless" src="{% static 'graph/App name Vs Model name Vs Step name.html' %}" height="400" width="90%"></iframe>
+
+            <iframe id="igraph" scrolling="no"
+                style="border: 2px solid #2595FF;
+                border: 2px solid #2595FF;
+                box-sizing: border-box;
+                margin-top:10px;
+                border-radius: 12px;"
+                seamless="seamless" src="{% static 'graph/App name Vs Timestamp Vs Inclination.html' %}" height="400" width="90%"></iframe>
+
+      {% elif alluser == True %}
+        <iframe id="igraph" scrolling="no"
+          style="border: 2px solid #2595FF;
+            border: 2px solid #2595FF;
+            box-sizing: border-box;
+            margin-top:10px;
+            border-radius: 12px;"
+            seamless="seamless" src="{% static 'graph/Access Date of User.html' %}" height="400" width="90%"></iframe>
+
+        <iframe id="igraph" scrolling="no"
+          style="border: 2px solid #2595FF;
+            border: 2px solid #2595FF;
+            box-sizing: border-box;
+            margin-top:10px;
+            border-radius: 12px;"
+            seamless="seamless" src="{% static 'graph/Inclination of User of each Date.html' %}" height="400" width="90%"></iframe>
+
+        <iframe id="igraph" scrolling="no"
+          style="border: 2px solid #2595FF;
+            border: 2px solid #2595FF;
+            box-sizing: border-box;
+            margin-top:10px;
+            border-radius: 12px;"
+            seamless="seamless" src="{% static 'graph/Access Model of User.html' %}" height="400" width="90%"></iframe>
+
+
+        <iframe id="igraph" scrolling="no"
+          style="border: 2px solid #2595FF;
+            border: 2px solid #2595FF;
+            box-sizing: border-box;
+            margin-top:10px;
+            border-radius: 12px;"
+            seamless="seamless" src="{% static 'graph/Access Step of User.html' %}" height="400" width="90%"></iframe>
+
+        <iframe id="igraph" scrolling="no"
+          style="border: 2px solid #2595FF;
+            border: 2px solid #2595FF;
+            box-sizing: border-box;
+            margin-top:10px;
+            border-radius: 12px;"
+            seamless="seamless" src="{% static 'graph/Average inclination of all models of User.html' %}" height="400" width="90%"></iframe>
+
+
+        <iframe id="igraph" scrolling="no"
+          style="border: 2px solid #2595FF;
+            border: 2px solid #2595FF;
+            box-sizing: border-box;
+            margin-top:10px;
+            border-radius: 12px;"
+            seamless="seamless" src="{% static 'graph/Median inclination of all models of User.html' %}" height="400" width="90%"></iframe>
+
+
+        <iframe id="igraph" scrolling="no"
+          style="border: 2px solid #2595FF;
+            border: 2px solid #2595FF;
+            box-sizing: border-box;
+            margin-top:10px;
+            border-radius: 12px;"
+            seamless="seamless" src="{% static 'graph/Average-Mean inclination of all Steps of User.html' %}" height="400" width="90%"></iframe>
+
+
+
+        <iframe id="igraph" scrolling="no"
+          style="border: 2px solid #2595FF;
+            border: 2px solid #2595FF;
+            box-sizing: border-box;
+            margin-top:10px;
+            border-radius: 12px;"
+            seamless="seamless" src="{% static 'graph/user activity graph of user.html' %}" height="400" width="90%"></iframe>
+
+
+
+        <iframe id="igraph" scrolling="no"
+          style="border: 2px solid #2595FF;
+            border: 2px solid #2595FF;
+            box-sizing: border-box;
+            margin-top:10px;
+            border-radius: 12px;"
+            seamless="seamless" src="{% static 'graph/Access each day  of user.html' %}" height="400" width="90%"></iframe>
+
+
+
+
+        <iframe id="igraph" scrolling="no"
+          style="border: 2px solid #2595FF;
+            border: 2px solid #2595FF;
+            box-sizing: border-box;
+            margin-top:10px;
+            border-radius: 12px;"
+            seamless="seamless" src="{% static 'graph/Number of models accessed By user.html' %}" height="400" width="90%"></iframe>
+
+
+
+        <iframe id="igraph" scrolling="no"
+          style="border: 2px solid #2595FF;
+            border: 2px solid #2595FF;
+            box-sizing: border-box;
+            margin-top:10px;
+            border-radius: 12px;"
+            seamless="seamless" src="{% static 'graph/User-Inclination.html' %}" height="400" width="90%"></iframe>
+
+
+
+        <iframe id="igraph" scrolling="no"
+          style="border: 2px solid #2595FF;
+            border: 2px solid #2595FF;
+            box-sizing: border-box;
+            margin-top:10px;
+            border-radius: 12px;"
+            seamless="seamless" src="{% static 'graph/Number of month the User was online.html' %}" height="400" width="90%"></iframe>
+
+
+
+        <iframe id="igraph" scrolling="no"
+          style="border: 2px solid #2595FF;
+            border: 2px solid #2595FF;
+            box-sizing: border-box;
+            margin-top:10px;
+            border-radius: 12px;"
+            seamless="seamless" src="{% static 'graph/Number of Day the User was online.html' %}" height="400" width="90%"></iframe>
+
+
+
+        <iframe id="igraph" scrolling="no"
+          style="border: 2px solid #2595FF;
+            border: 2px solid #2595FF;
+            box-sizing: border-box;
+            margin-top:10px;
+            border-radius: 12px;"
+            seamless="seamless" src="{% static 'graph/Number of Month the App was Accessed.html' %}" height="400" width="90%"></iframe>
+
+
+            <iframe id="igraph" scrolling="no"
+                style="border: 2px solid #2595FF;
+                border: 2px solid #2595FF;
+                box-sizing: border-box;
+                margin-top:10px;
+                border-radius: 12px;"
+                seamless="seamless" src="{% static 'graph/User name Vs Model_name Vs TimeStamp.html' %}" height="400" width="90%"></iframe>
+
+            <iframe id="igraph" scrolling="no"
+                style="border: 2px solid #2595FF;
+                border: 2px solid #2595FF;
+                box-sizing: border-box;
+                margin-top:10px;
+                border-radius: 12px;"
+                seamless="seamless" src="{% static 'graph/User name Vs Model name Vs Step name.html' %}" height="400" width="90%"></iframe>
+
+            <iframe id="igraph" scrolling="no"
+                style="border: 2px solid #2595FF;
+                border: 2px solid #2595FF;
+                box-sizing: border-box;
+                margin-top:10px;
+                border-radius: 12px;"
+                seamless="seamless" src="{% static 'graph/User name Vs Model name Vs Step name.html' %}" height="400" width="90%"></iframe>
+
+                <iframe id="igraph" scrolling="no"
+                    style="border: 2px solid #2595FF;
+                    border: 2px solid #2595FF;
+                    box-sizing: border-box;
+                    margin-top:10px;
+                    border-radius: 12px;"
+                    seamless="seamless" src="{% static 'graph/Model name Vs TimeStamp Vs Inclination.html' %}" height="400" width="90%"></iframe>
+      {% elif alluser == False and allapp == True %}
+        <div class="error" id="error">
+          <p>There is no Graph for selected data <strong> go back by using back arrow of browser</strong></p>
+        </div>
+
+      {%  else %}
+
+            <iframe id="igraph" scrolling="no"
+              style="border: 2px solid #2595FF;
+                border: 2px solid #2595FF;
+                box-sizing: border-box;
+                margin-top:10px;
+                border-radius: 12px;"
+                seamless="seamless" src="{% static 'graph/Access Date of User.html' %}" height="400" width="90%"></iframe>
+
+            <iframe id="igraph" scrolling="no"
+              style="border: 2px solid #2595FF;
+                border: 2px solid #2595FF;
+                box-sizing: border-box;
+                margin-top:10px;
+                border-radius: 12px;"
+                seamless="seamless" src="{% static 'graph/Inclination of User of each Date.html' %}" height="400" width="90%"></iframe>
+
+            <iframe id="igraph" scrolling="no"
+              style="border: 2px solid #2595FF;
+                border: 2px solid #2595FF;
+                box-sizing: border-box;
+                margin-top:10px;
+                border-radius: 12px;"
+                seamless="seamless" src="{% static 'graph/Access Model of User.html' %}" height="400" width="90%"></iframe>
+
+
+            <iframe id="igraph" scrolling="no"
+              style="border: 2px solid #2595FF;
+                border: 2px solid #2595FF;
+                box-sizing: border-box;
+                margin-top:10px;
+                border-radius: 12px;"
+                seamless="seamless" src="{% static 'graph/Access Step of User.html' %}" height="400" width="90%"></iframe>
+
+            <iframe id="igraph" scrolling="no"
+              style="border: 2px solid #2595FF;
+                border: 2px solid #2595FF;
+                box-sizing: border-box;
+                margin-top:10px;
+                border-radius: 12px;"
+                seamless="seamless" src="{% static 'graph/Average inclination of all models of User.html' %}" height="400" width="90%"></iframe>
+
+
+            <iframe id="igraph" scrolling="no"
+              style="border: 2px solid #2595FF;
+                border: 2px solid #2595FF;
+                box-sizing: border-box;
+                margin-top:10px;
+                border-radius: 12px;"
+                seamless="seamless" src="{% static 'graph/Median inclination of all models of User.html' %}" height="400" width="90%"></iframe>
+
+
+            <iframe id="igraph" scrolling="no"
+              style="border: 2px solid #2595FF;
+                border: 2px solid #2595FF;
+                box-sizing: border-box;
+                margin-top:10px;
+                border-radius: 12px;"
+                seamless="seamless" src="{% static 'graph/Average-Mean inclination of all Steps of User.html' %}" height="400" width="90%"></iframe>
+
+
+
+            <iframe id="igraph" scrolling="no"
+              style="border: 2px solid #2595FF;
+                border: 2px solid #2595FF;
+                box-sizing: border-box;
+                margin-top:10px;
+                border-radius: 12px;"
+                seamless="seamless" src="{% static 'graph/user activity graph of user.html' %}" height="400" width="90%"></iframe>
+
+
+
+            <iframe id="igraph" scrolling="no"
+              style="border: 2px solid #2595FF;
+                border: 2px solid #2595FF;
+                box-sizing: border-box;
+                margin-top:10px;
+                border-radius: 12px;"
+                seamless="seamless" src="{% static 'graph/Access each day  of user.html' %}" height="400" width="90%"></iframe>
+
+
+
+
+            <iframe id="igraph" scrolling="no"
+              style="border: 2px solid #2595FF;
+                border: 2px solid #2595FF;
+                box-sizing: border-box;
+                margin-top:10px;
+                border-radius: 12px;"
+                seamless="seamless" src="{% static 'graph/Number of models accessed By user.html' %}" height="400" width="90%"></iframe>
+
+
+
+            <iframe id="igraph" scrolling="no"
+              style="border: 2px solid #2595FF;
+                border: 2px solid #2595FF;
+                box-sizing: border-box;
+                margin-top:10px;
+                border-radius: 12px;"
+                seamless="seamless" src="{% static 'graph/User-Inclination.html' %}" height="400" width="90%"></iframe>
+
+
+
+            <iframe id="igraph" scrolling="no"
+              style="border: 2px solid #2595FF;
+                border: 2px solid #2595FF;
+                box-sizing: border-box;
+                margin-top:10px;
+                border-radius: 12px;"
+                seamless="seamless" src="{% static 'graph/Number of month the User was online.html' %}" height="400" width="90%"></iframe>
+
+
+
+            <iframe id="igraph" scrolling="no"
+              style="border: 2px solid #2595FF;
+                border: 2px solid #2595FF;
+                box-sizing: border-box;
+                margin-top:10px;
+                border-radius: 12px;"
+                seamless="seamless" src="{% static 'graph/Number of Day the User was online.html' %}" height="400" width="90%"></iframe>
+
+
+
+            <iframe id="igraph" scrolling="no"
+              style="border: 2px solid #2595FF;
+                border: 2px solid #2595FF;
+                box-sizing: border-box;
+                margin-top:10px;
+                border-radius: 12px;"
+                seamless="seamless" src="{% static 'graph/Number of Month the App was Accessed.html' %}" height="400" width="90%"></iframe>
+
+
+                <iframe id="igraph" scrolling="no"
+                  style="border: 2px solid #2595FF;
+                  border: 2px solid #2595FF;
+                  box-sizing: border-box;
+                  margin-top:10px;
+                  border-radius: 12px;"
+                  seamless="seamless" src="{% static 'graph/Step name Vs Model_name Vs TimeStamp.html' %}" height="400" width="90%"></iframe>
+
+                <iframe id="igraph" scrolling="no"
+                  style="border: 2px solid #2595FF;
+                  border: 2px solid #2595FF;
+                  box-sizing: border-box;
+                  margin-top:10px;
+                  border-radius: 12px;"
+                  seamless="seamless" src="{% static 'graph/Step name Vs Model name Vs Inclination.html' %}" height="400" width="90%"></iframe>
+
+                <iframe id="igraph" scrolling="no"
+                  style="border: 2px solid #2595FF;
+                  border: 2px solid #2595FF;
+                  box-sizing: border-box;
+                  margin-top:10px;
+                  border-radius: 12px;"
+                  seamless="seamless" src="{% static 'graph/Year Vs Model name Vs Step name.html' %}" height="400" width="90%"></iframe>
+
+                <iframe id="igraph" scrolling="no"
+                  style="border: 2px solid #2595FF;
+                  border: 2px solid #2595FF;
+                  box-sizing: border-box;
+                  margin-top:10px;
+                  border-radius: 12px;"
+                  seamless="seamless" src="{% static 'graph/Model name Vs TimeStamp Vs Inclination.html' %}" height="400" width="90%"></iframe>
+
+
+      {% endif%}
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.6.8/lottie.min.js" integrity="sha256-HlqBFI4b3mzFNE97JQcgI/uhJvHBI5czBqfVtEeA1Hg=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+    var animation = bodymovin.loadAnimation({
+      container: document.getElementById('error'), // Required
+      path: '{% static "error.json" %}', // Required
+      renderer: 'svg/canvas/html', // Required
+      loop: true, // Optional
+      autoplay: true, // Optional
+
+      })
+    </script>
+  </body>
+</html>

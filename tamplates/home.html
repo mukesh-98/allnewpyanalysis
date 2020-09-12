@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Py.Analysis</title>
+    <link href="https://fonts.googleapis.com/css?family=Abel&display=swap" rel="stylesheet">
+    <style media="screen">
+      html {
+        scroll-behavior: smooth;
+        outline: none;
+      }
+      body{
+         font-family: Abel, sans-serif;
+         margin:0px;
+         padding:0px;
+
+      }
+
+      .box{
+        width:100%;
+        height:100vh;
+      }
+      .box img{
+        position:absolute;
+        z-index:-1;
+        width:100%;
+        height:100vh;
+        object-fit: cover;
+      }
+      .box .container{
+
+        margin-left: 10%;
+        margin-right: 8.06%;
+
+
+      }
+      .box .container .nav{
+        padding-top: 5.49%;
+        display:flex;
+        flex-direction:row;
+        justify-content:space-between;
+      }
+
+      .box .container .nav .brand a{
+        font-style: normal;
+        font-weight: normal;
+        font-size: 39px;
+        line-height: 50px;
+        /* identical to box height */
+        color: #3F3D56;
+        text-shadow: 0 0 1px #0097FF, 0 0 1px #0097FF;
+        margin-top:-10px;
+        text-decoration:none;
+      }
+
+      .box .container .nav .link {
+
+
+        display:flex;
+        flex-direction:row;
+        justify-content:sapce-between;
+
+      }
+      .box .container .nav .link div > a{
+
+          font-style: normal;
+          font-weight: normal;
+          font-size: 25px;
+          line-height: 32px;
+          /* identical to box height */
+          color: #4C8DB3;
+          margin-left:125px;
+          text-decoration:none;
+      }
+
+        .box .container .nav .login a{
+          background-color: #11CDEF;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 25px;
+          line-height: 32px;
+          text-decoration:none;
+          /* identical to box height */
+
+
+          color: #FFFFFF;
+
+          padding:10% 30%;
+          margin-top:-4px;
+          margin-right:16px;
+          border-radius:6px;
+
+        }
+        .box .container .nav .login a:hover{
+          cursor:pointer;
+          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        }
+
+        .box .container .title{
+
+          margin-top:5%;
+          margin-left:2%;
+          font-family: Abel;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 98px;
+          line-height: 125px;
+          /* identical to box height */
+
+
+          color: #3F3D56;
+
+
+        }
+
+
+          .box .container .subtitle{
+          margin-top:8px;
+          margin-left:5%;
+          font-family: Abel;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 20px;
+          line-height: 31px;
+
+          color: #347FAA;
+          }
+
+          .box .container .signup a{
+            position:absolute;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 18px;
+            line-height: 24px;
+            /* identical to box height */
+
+
+            color: #FFFFFF;
+
+            padding:.5% 3%;
+            margin-top:1%;
+            margin-left:6%;
+
+            width:35px;
+            border-radius:6px;
+            background-color: #11CDEF;
+            text-align:center;
+            padding-right:4%;
+
+            text-decoration:none;
+          }
+
+          .box .container .signup a:hover{
+            cursor:pointer;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+          }
+
+          .aboutp{
+            margin-top:10%;
+            margin-left: 30%;
+            margin-right: 8.06%;
+            display:flex;
+            flex-direction:column;
+            align:center;
+
+          }
+
+          .aboutp .abtitle{
+
+            margin:5% 15%;
+
+            font-family: Abel;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 46px;
+            line-height: 59px;
+
+            color: #70C1EA;
+          }
+
+          .aboutp .absum{
+            margin:8% -2%;
+            font-family: Abel;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 17px;
+            line-height: 25px;
+            text-align: justify;
+
+            color: #70C1EA;
+          }
+
+          hr{
+            color:grey;
+            width:80%;
+            height:1px;
+
+          }
+
+          .third1 img{
+
+            margin-left: 25%;
+          }
+
+          .forth1 img{
+            margin-left: 25%;
+            margin-top: 10%;
+          }
+
+          .footer img{
+            width: 100%;
+
+
+          }
+
+          .footer .header{
+            left: 13.98%;
+            right: 59.06%;
+            top: 415.71%;
+            bottom: 13.04%;
+
+            font-family: Abel;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 46px;
+            line-height: 59px;
+
+            color: #70C1EA;
+            position: absolute;
+          }
+
+          .footer form input{
+            position: absolute;
+            left: 13.12%;
+            right: 62.64%;
+            top: 427.44%;
+            bottom: 56.46%;
+            width: 300px;
+            background: #FFFEFE;
+            border: 7px solid #E2F3FF;
+            box-sizing: border-box;
+            border-radius: 12px;
+            padding: 20px;
+          }
+
+          .footer form .submit{
+            left:540px;
+            background-color: #11CDEF;
+            border: 0.5px solid #E2F3FF;
+            width:120px;
+            padding: 18px 20px 28px 20px;
+            color: white;
+            text-align: center;
+          }
+          .footer form .submit:hover{
+
+            cursor:pointer;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+          }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      {% load static %}
+      <img src="{% static 'assets/288.svg' %}" alt="My image">
+      <div class="container">
+        <div class="nav">
+            <div class="brand">
+                <a href="#">Py.Analysis</a>
+            </div>
+            <div class="link">
+              <div class="home">
+                <a href="#">Home</a>
+              </div>
+
+              <div class="about">
+                <a href="#about">About</a>
+              </div>
+
+              <div class="contact">
+                <a href="#contact">Contact</a>
+              </div>
+            </div>
+
+            <div class="login">
+              <a href="{% url 'login' %}">Login</a>
+            </div>
+        </div>
+
+        <div class="title">
+          Py.Analysis
+        </div>
+
+        <div class="subtitle">
+          Analysis that matters for you to understand <br>
+          the data on a millisecond basis.<br>
+          You can react to new information <br>
+          in seconds rather than days.<br>
+        </div>
+
+        <div class="signup">
+          <a href="{% url 'signup' %}">Sign&nbsp;up</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="aboutp" id="about">
+
+      <div class="abtitle">
+          What is Analytics ?
+      </div>
+      <div class="abimg">
+        {% load static %}
+        <img src="{% static 'assets/pi.svg' %}" alt="My image">
+      </div>
+      <div class="absum">
+        Analytics is the scientific process of discovering and communicating the meaningful <br>
+        patterns which can be found in data.It is concerned with turning raw data into insight<br>
+        for making better decisions.<br><br>
+
+         Analytics relies on the application of statistics, computer programming,and operations <br>
+         research in order to quantify and gain insight to the meanings of data. It is especially <br>
+        useful in areas which record a lot of data or information.<br>
+      </div>
+
+    </div>
+
+    <hr>
+
+    <div class="third1">
+
+      <img src="{% static 'assets/third1.svg' %}" alt="third">
+
+    </div>
+      <hr>
+      <div class="forth1">
+
+        <img src="{% static 'assets/fourth1.svg' %}" alt="forth1">
+
+      </div>
+
+      <hr>
+
+      <div class="footer" id="contact">
+        <img src="{% static 'assets/graph.svg' %}" alt="">
+        <div class="header">Contact</div>
+        <form  action="mailto:mukesh1998parmar@gmail.com" method="post">
+          <input class="email" type="email" placeholder="abc@gmail.com" name="email">
+          <input class="submit" type="submit" name="submit" value="Send">
+        </form>
+
+      </div>
+  </body>
+</html>

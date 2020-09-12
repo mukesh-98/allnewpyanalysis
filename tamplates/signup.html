@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUp</title>
+    <link href="https://fonts.googleapis.com/css?family=Abel&display=swap" rel="stylesheet">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <style media="screen">
+      .nav{
+        display:flex;
+
+
+      }
+      .nav .title{
+        font-family: Abel;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 39px;
+        line-height: 50px;
+        /* identical to box height */
+        color: #3F3D56;
+        text-shadow: 0 0 1px #0097FF, 0 0 1px #0097FF;
+        margin-top:20px;
+        margin-left:30px;
+        text-decoration:none;
+
+        flex:1;
+      }
+
+      .nav .goback{
+        flex:-1;
+        margin-top:30px;
+        margin-right:40px;
+      }
+
+      .nav .goback a{
+        font-family: Abel;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 30px;
+        line-height: 38px;
+
+        color: #3F77AA;
+
+        text-decoration:none;
+
+      }
+      img{
+        position:absolute;
+        z-index:-1;
+        width:99%;
+      }
+      .login{
+        position:relative;
+        box-shadow: 3px 3px 17px rgba(44, 40, 40, 0.11);
+        background: #FFFFFF;
+        margin: 20px 200px;
+
+        border-radius:12px;
+
+      }
+
+      .login .heading{
+        padding:20px  0px 10px 0px;
+        text-align:center;
+        font-family: Segoe UI;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 25px;
+        line-height: 33px;
+        text-shadow: 0 0 1px #0097FF, 0 0 1px #0097FF;
+        color:  #3F3D56;
+      }
+
+        .login .subt{
+
+          font-family: Segoe UI;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 15px;
+          line-height: 20px;
+          /* identical to box height */
+
+
+          color: #172B4D;
+          padding:3px;
+          text-align:center;
+
+      }
+
+      .login .error{
+        display:block;
+        color: #3F3D56;
+        width:45%;
+        padding:0px 24px;
+        margin:2% 30%;
+        background:#FF9494;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border: 1px solid #2595FF;
+        box-sizing: border-box;
+        border-radius: 12px;
+        text-shadow: 0 0 1px #0097FF, 0 0 1px #0097FF;
+        font-family: Abel;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 15px;
+        line-height: 51px;
+
+        color: #3F3D56;
+
+        border: 1px solid #2595FF;
+      }
+
+      .login form{
+        display:flex;
+        flex-direction:column;
+        align-content:center;
+        margin:20px 180px 10px 180px;
+        background-color: white;
+
+      }
+      .login form .input{
+
+        margin:10px 0px 10px 0px;
+        padding:10px;
+
+        border:none;
+        background: white;
+
+        opacity: 0.8;
+        font-family: Segoe UI;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 15px;
+        line-height: 20px;
+        /* identical to box height */
+
+
+        color: #172B4D;
+        padding:3px;
+      }
+
+      .login form .input .form-row .form-group #div_id_username .textinput{
+        width:100%;
+        margin: 10px 0px 5px 0px;
+        padding: 5px 0px;
+        border-radius: 12px;
+        border: 1px solid grey;
+
+      }
+      .login form .input .form-row .form-group #div_id_username small{
+        display: flex;
+        flex-direction: column;
+        margin: 2px 0px 0px 0px;
+      }
+
+
+      .login form .input .form-row .form-group #div_id_email .emailinput{
+        width:100%;
+        margin: 10px 0px 5px 0px;
+        padding: 5px 0px;
+        border-radius: 12px;
+        border: 1px solid grey;
+
+      }
+      .login form .input .form-row .form-group #div_id_email small{
+        display: flex;
+        flex-direction: column;
+        margin: 2px 0px 0px 0px;
+      }
+
+      .login form .input .form-row .form-group #div_id_password1 .textinput{
+        width:100%;
+        margin: 10px 0px 5px 0px;
+        padding: 5px 0px;
+        border-radius: 12px;
+        border: 1px solid grey;
+
+      }
+      .login form .input .form-row .form-group #div_id_password1 small{
+        display: flex;
+        flex-direction: column;
+        margin: 2px 0px 0px 0px;
+      }
+      .login form .input .form-row .form-group #div_id_password2 .textinput{
+        width:100%;
+        margin: 10px 0px 5px 0px;
+        padding: 5px 0px;
+        border-radius: 12px;
+        border: 1px solid grey;
+
+      }
+      .login form .input .form-row .form-group #div_id_password2 small{
+        display: flex;
+        flex-direction: column;
+        margin: 2px 0px 0px 0px;
+      }
+    .login form .log button{
+      padding:10px 35px;
+      margin-left:320px;
+      color:white;
+      border-radius:6px;
+      border: none;
+      background-color:#11CDEF;
+    }
+      .login form .log button:hover{
+        cursor:pointer;
+        background-color:#7FD6E5;
+      }
+
+      .login .extra{
+        text-align:center;
+        margin:20px -20px;
+        color:#849AFD;
+        padding-bottom:20px;
+
+      }
+
+      .login .extra a{
+
+        text-decoration:none;
+        color:#11CDEF;
+
+      }
+
+
+        @media screen and (max-width: 400px){
+          .login{
+            position:relative;
+            box-shadow: 3px 3px 17px rgba(44, 40, 40, 0.11);
+            background: #FFFFFF;
+            margin: 20px 10px;
+
+            border-radius:12px;
+
+          }
+          .login form .log button{
+            padding:10px 35px;
+            margin-left:100px;
+            color:white;
+            border-radius:6px;
+            border: none;
+            background-color:#11CDEF;
+          }
+          .login form{
+            display:flex;
+            flex-direction:column;
+            align-content:center;
+            margin:20px 10px 10px 10px;
+            background-color: white;
+
+          }
+        }
+
+    </style>
+  </head>
+  <body>
+    <div class="nav">
+      <div class="title">
+        PhonBook
+      </div>
+      <div class="goback">
+        <a href="{% url 'home' %}">Go&nbsp;Home</a>
+      </div>
+    </div>
+
+
+    <div class="login col-md-6">
+      <div class="heading">
+        PhoneBook
+      </div>
+      <div class="subt">
+        Welcome! Please SignUp For Registration.
+      </div>
+
+      <form class="form col-md-6"  method="post">
+        {% load crispy_forms_tags %}
+        {% csrf_token %}
+        <div class="input">
+          <div class="form-row ">
+            <div class="form-group col-md-6 mb-0">
+              {{ form.username|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-6 mb-0">
+              {{ form.email|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-6 mb-0">
+              {{ form.password1|as_crispy_field }}
+            </div>
+            <div class="form-group col-md-6 mb-0">
+              {{ form.password2|as_crispy_field }}
+            </div>
+          </div>
+        </div>
+        <div class="log">
+          <button type="submit" name="submit" value="SignUp">SignUp</button>
+        </div>
+      </form>
+      <div class="extra">
+
+        Do&nbsp;you&nbsp;have&nbsp;account&nbsp;already?&nbsp;&nbsp;&nbsp;<a href="{% url 'login' %}">Login&nbsp;!</a>
+
+      </div>
+    </div>
+    <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  </body>
+</html>
